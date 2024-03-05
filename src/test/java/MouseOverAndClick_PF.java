@@ -1,14 +1,14 @@
-import Launch_Browser.Launching_Browser;
 import Setup.CommonClass;
 import UsingByClassMethods.HomePage_Election_Commision_Methods;
 import UsingPF.HomePage_PF;
 
-public class mouseOverAndClick extends CommonClass {
-
+public class MouseOverAndClick_PF extends CommonClass {
     public static void main(String arg[]) throws InterruptedException {
         fnLaunchBrowser("Chrome","https://ceotelangana.nic.in/#");
         Thread.sleep(5000);
-        HomePage_Election_Commision_Methods.fnNavigateServicePortal();
+        HomePage_PF obj = new HomePage_PF(webdriver);
+        obj.fnNavigateServicePortal_PF();
+        //HomePage_Election_Commision_Methods.fnNavigateServicePortal();
         Thread.sleep(5000);
         webdriver.quit();
     }
