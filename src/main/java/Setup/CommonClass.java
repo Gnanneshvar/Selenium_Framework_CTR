@@ -9,6 +9,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.time.Duration;
+
 public class CommonClass {
 
     public static WebDriver webdriver;
@@ -31,6 +33,8 @@ public class CommonClass {
             webdriver = new InternetExplorerDriver();
         }
         webdriver.manage().window().maximize();
+        webdriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        webdriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
         webdriver.get(url);
     }
 }
