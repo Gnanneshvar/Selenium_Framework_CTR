@@ -15,6 +15,24 @@ public class HomePage_Election_Commision_Methods extends CommonClass {
         act.moveToElement(Reusble.findelement(HomePage_Election_Commision.assemblyConstituency));
         Thread.sleep(2000);
         act.moveToElement(Reusble.findelement(HomePage_Election_Commision.voterServicePortal)).click().build().perform();
-        
     }
+
+    public static void fnNavigateClaims() throws InterruptedException {
+        act = new Actions(webdriver);
+        act.moveToElement(Reusble.findelement(HomePage_Election_Commision.eregistration));
+        Thread.sleep(2000);
+        act.moveToElement(Reusble.findelement(HomePage_Election_Commision.assemblyConstituency));
+        Thread.sleep(2000);
+        act.moveToElement(Reusble.findelement(HomePage_Election_Commision.claims)).click().build().perform();
+    }
+
+    public static void fnNavigateVoterPortal() throws InterruptedException {
+        act = new Actions(webdriver);
+        act.moveToElement(Reusble.findelement(HomePage_Election_Commision.eregistration));
+        Thread.sleep(2000);
+        act.moveToElement(Reusble.findelement(HomePage_Election_Commision.assemblyConstituency));
+        Thread.sleep(2000);
+        act.moveToElement(Reusble.findelement(HomePage_Election_Commision.voterPortal)).click().build().perform();
+    }
+
 }

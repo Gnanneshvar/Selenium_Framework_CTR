@@ -36,7 +36,7 @@ public class CommonClass {
         }
         webdriver.manage().window().maximize();
         webdriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
-        webdriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(15));
+        webdriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(25));
         webdriver.get(url);
     }
 }
