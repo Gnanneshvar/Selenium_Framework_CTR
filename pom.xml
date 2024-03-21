@@ -20,5 +20,12 @@
             <artifactId>selenium-java</artifactId>
             <version>4.18.1</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.codoid.products/fillo -->
+        <dependency>
+            <groupId>com.codoid.products</groupId>
+            <artifactId>fillo</artifactId>
+            <version>1.18</version>
+        </dependency>
+
     </dependencies>
 </project>

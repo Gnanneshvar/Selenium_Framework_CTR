@@ -1,5 +1,8 @@
 package Setup;
 
+import com.codoid.products.fillo.Connection;
+import com.codoid.products.fillo.Fillo;
+import com.codoid.products.fillo.Recordset;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,6 +21,10 @@ public class CommonClass {
     public static WebElement webelement;
     public static Actions act;
     public static List<WebElement> webElements;
+    public static Fillo fillo;
+    public static Connection connection;
+    public static Recordset recordset;
+    public static String strQuery;
 
     public static void fnLaunchBrowser(String browser,String url)
     {
