@@ -18,7 +18,7 @@ public class HandlingFrames extends CommonClass {
 //        webdriver.quit();
         //webdriver.navigate().to("");
         // Navigating to Nested Frame URL:
-        fnLaunchBrowser("Chrome","https://demoqa.com/nestedframes");
+        fnLaunchBrowser("https://demoqa.com/nestedframes");
         webdriver.switchTo().frame(frame1);
         List<WebElement> listFrame = webdriver.findElements(By.tagName("iframe"));
         System.out.println(listFrame.size());

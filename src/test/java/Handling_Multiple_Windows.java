@@ -1,13 +1,16 @@
+import Reusables.Reusble;
 import Setup.CommonClass;
 import UsingByClassMethods.HomePage_Election_Commision_Methods;
+
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
 public class Handling_Multiple_Windows extends CommonClass {
     static String parentWindow;
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, IOException {
         String childWindow;
-        fnLaunchBrowser("Chrome","https://ceotelangana.nic.in/#");
+        fnLaunchBrowser("https://ceotelangana.nic.in/#");
         HomePage_Election_Commision_Methods.fnNavigateServicePortal();
         Thread.sleep(3000);
         HomePage_Election_Commision_Methods.fnNavigateClaims();
@@ -32,6 +35,7 @@ public class Handling_Multiple_Windows extends CommonClass {
             }
         }
         webdriver.switchTo().window(parentWindow);
+        Reusble.generateScreenShot("Testing");
         webdriver.quit();
     }
 }

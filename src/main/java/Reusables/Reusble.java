@@ -1,14 +1,16 @@
 package Reusables;
 
 import Setup.CommonClass;
-import org.openqa.selenium.By;
-import org.openqa.selenium.StaleElementReferenceException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.IOException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Iterator;
 import java.util.List;
@@ -17,6 +19,8 @@ public class Reusble extends CommonClass {
     public static boolean status;
     public static Select sel;
     public static List<WebElement> selList;
+
+    public static JavascriptExecutor js;
     public static WebDriverWait wait = new WebDriverWait(webdriver, Duration.ofSeconds(40));
     public static WebElement findelement(By by)
     {
@@ -137,4 +141,74 @@ public class Reusble extends CommonClass {
         }
     }
 
+    /**
+     * Method to scroll down to the bottom of the page
+     */
+
+    public static void scrollDownToBottom()
+    {
+        js = (JavascriptExecutor)webdriver;
+        js.executeScript("window.scrollTo(0, document.body.scrollHeight)");
+    }
+
+
+    public static void scrollDownTopixel()
+    {
+        js = (JavascriptExecutor)webdriver;
+        js.executeScript("window.scrollTo(0, 250)");
+    }
+
+    public static void jsClick(WebElement web)
+    {
+        js = (JavascriptExecutor) webdriver;
+        try
+        {
+            wait.until(ExpectedConditions.elementToBeClickable(web));
+            js.executeScript("argument[0].click()",web);
+        }
+        catch(Exception E)
+        {
+
+        }
+    }
+
+    /**
+     *
+     * @param web
+     * @param webElementName
+     */
+    public static void scrollDownTillWebElement(WebElement web,String webElementName)
+    {
+        js = (JavascriptExecutor)webdriver;
+        try
+        {
+            js.executeScript("arguments[0].scrollIntoView(true)", web);
+        }
+        catch(Exception E)
+        {
+            //test.log(Status.FAIL, "The WebElement is not visible in the page::"+webElementName);
+            //test.log(Status.FAIL,"Error Message as::"+E);
+        }
+    }
+
+    /**
+     *  This method is used to take the screenshot
+     * @param screenShotName
+     * @return
+     * @throws IOException
+     */
+
+    public static String generateScreenShot(String screenShotName) throws IOException
+    {
+        TakesScreenshot ts = (TakesScreenshot) webdriver;
+        timeStamp = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss").format(new java.util.Date());
+        // Capture the screenshot as a File
+        File screenshotFile = ts.getScreenshotAs(OutputType.FILE);
+        String destinationlocation = System.getProperty("user.dir")+"\\Failed_Screenshot\\"+screenShotName+timeStamp+".png";
+        // Specify the destination directory and filename for the screenshot
+        File destination = new File(destinationlocation);
+        // Move the screenshot file to the specified destination
+        FileHandler.copy(screenshotFile,destination);
+        return destinationlocation;
+    }
 }

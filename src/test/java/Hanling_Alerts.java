@@ -14,7 +14,7 @@ public class Hanling_Alerts extends CommonClass {
     public static By promptButton = By.id("promtButton");
     public static WebDriverWait wait;
     public static void main(String arg[]) throws InterruptedException {
-        fnLaunchBrowser("Chrome","https://demoqa.com/alerts");
+        fnLaunchBrowser("https://demoqa.com/alerts");
         wait = new WebDriverWait(webdriver, Duration.ofSeconds(10));
         // Click on seeAlert
         Reusble.click(Reusble.findelement(seeAlert));
