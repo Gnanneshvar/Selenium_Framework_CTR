@@ -1,3 +1,5 @@
+package Sanity;
+
 import Setup.CommonClass;
 import org.testng.annotations.*;
 
@@ -54,7 +56,7 @@ public class TestNgAnnotations extends CommonClass {
     @Test(priority=0)
     void test()
     {
-        System.out.println(10/0);
+        System.out.println("Test");
     }
 
     @Test(priority = 1,dependsOnMethods = {"test"})

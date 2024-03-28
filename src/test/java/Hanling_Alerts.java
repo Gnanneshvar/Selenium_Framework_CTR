@@ -17,21 +17,21 @@ public class Hanling_Alerts extends CommonClass {
         fnLaunchBrowser("https://demoqa.com/alerts");
         wait = new WebDriverWait(webdriver, Duration.ofSeconds(10));
         // Click on seeAlert
-        Reusble.click(Reusble.findelement(seeAlert));
+        Reusble.click(Reusble.findelement(seeAlert),"Alert1");
         webdriver.switchTo().alert().accept();
         webdriver.switchTo().defaultContent();
         // Click on Timer Alert
-        Reusble.click(Reusble.findelement(timerAlert));
+        Reusble.click(Reusble.findelement(timerAlert),"Alert2");
         wait.until(ExpectedConditions.alertIsPresent());
         webdriver.switchTo().alert().accept();
         webdriver.switchTo().defaultContent();
         // Click on Confirm box alert
-        Reusble.click(Reusble.findelement(confirmButton));
+        Reusble.click(Reusble.findelement(confirmButton),"Confirm button");
         webdriver.switchTo().alert().dismiss();
         Thread.sleep(4000);
         webdriver.switchTo().defaultContent();
         // click on prompt
-        Reusble.click(Reusble.findelement(promptButton));
+        Reusble.click(Reusble.findelement(promptButton),"Prompt Click");
         webdriver.switchTo().alert().sendKeys("Testing");
         Thread.sleep(4000);
         webdriver.switchTo().alert().accept();

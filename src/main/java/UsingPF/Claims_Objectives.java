@@ -11,10 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class Claims extends CommonClass {
-    public Claims obj;
-    public String name="DEEKSHA BAVARIA";
-    public Claims(WebDriver driver)
+public class Claims_Objectives extends CommonClass {
+    public Claims_Objectives(WebDriver driver)
     {
         PageFactory.initElements(driver,this);
     }
@@ -89,7 +87,7 @@ public class Claims extends CommonClass {
         {
             xpath = "//table[@id='grvelectroldetailsform18']//tr["+i+"]/td[3]";
             webelement = webdriver.findElement(By.xpath(xpath));
-           // System.out.println(webelement.getText());
+            // System.out.println(webelement.getText());
             if(webelement.getText().equals(text))
             {
                 System.out.println("The String is present in the table");

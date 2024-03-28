@@ -1,3 +1,5 @@
+package Sanity;
+
 import Setup.CommonClass;
 import UsingPF.Claims;
 

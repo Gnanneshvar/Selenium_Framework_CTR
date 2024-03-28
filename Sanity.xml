@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite preserve-order="true" name="Suite" parallel="classes" thread-count="3">
+    <!-- Test -->
+    <test name="TestngAnnotations">
+        <classes>
+            <class name="Sanity.TestNgAnnotations"></class>
+        </classes>
+    </test>
+    <test name="Parameters Testing">
+        <classes>
+            <class name="Handling_Multiple_Windows"></class>
+            <parameter name="URL" value="https://ceotelangana.nic.in/#"></parameter>
+        </classes>
+    </test>
+    <test name="ReadingJson">
+        <classes>
+            <class name="Reading_JsonFile"/>
+        </classes>
+    </test>
+</suite> <!-- Suite -->

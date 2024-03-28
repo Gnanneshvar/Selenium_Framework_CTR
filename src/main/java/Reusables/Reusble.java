@@ -1,6 +1,7 @@
 package Reusables;
 
 import Setup.CommonClass;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.*;
 import org.openqa.selenium.io.FileHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -37,7 +38,7 @@ public class Reusble extends CommonClass {
         return webelement;
     }
 
-    public static void type(WebElement element,String text)
+    public static void type(WebElement element,String text,String webElementName)
     {
         try
         {
@@ -46,76 +47,85 @@ public class Reusble extends CommonClass {
                 element.click();
                 element.clear();
                 element.sendKeys(text);
+                test.log(Status.INFO,"Entered Text for::"+webElementName+" as "+text);
             }
 
         }
         catch(Exception E)
         {
-
+            test.log(Status.FAIL,"Failed to enter text for::"+webElementName);
         }
     }
 
-    public static void click(WebElement element)
+    public static void click(WebElement element,String webElementName)
     {
         try
         {
             wait.until(ExpectedConditions.elementToBeClickable(element));
             if(element.isEnabled() && element.isDisplayed()) {
                 element.click();
+                test.log(Status.INFO,"Clicked on::"+webElementName);
             }
 
         }
         catch(Exception E)
         {
-            System.out.println("Unable to click on WebElement");
-            System.out.println(E.getMessage());
-            E.printStackTrace();
+            test.log(Status.FAIL,"Failed to click on ::"+webElementName);
+            test.log(Status.FAIL,"Error Message as::"+E.getMessage());
         }
     }
 
-    public static void selectByVisbileText(WebElement web,String value)
+    public static void selectByVisbileText(WebElement web,String value,String webElementName)
     {
         try
         {
             wait.until(ExpectedConditions.elementToBeClickable(web));
             sel = new Select(web);
             sel.selectByVisibleText(value);
+            test.log(Status.INFO,"Selected a "+value+" from dropdown "+webElementName);
         }
         catch(Exception E)
         {
             System.out.println("Unable to select the value");
+            test.log(Status.FAIL,"Unable to select a "+value+" from dropdown "+webElementName);
+            test.log(Status.FAIL,"Error Message as::"+E.getMessage());
         }
     }
 
-    public static void selectByValue(WebElement web,String value)
+    public static void selectByValue(WebElement web,String value,String webElementName)
     {
         try
         {
             wait.until(ExpectedConditions.elementToBeClickable(web));
             sel = new Select(web);
             sel.selectByValue(value);
+            test.log(Status.INFO,"Selected a "+value+" from dropdown "+webElementName);
         }
         catch(Exception E)
         {
             System.out.println("Unable to select the value");
+            test.log(Status.FAIL,"Unable to select a "+value+" from dropdown "+webElementName);
+            test.log(Status.FAIL,"Error Message as::"+E.getMessage());
         }
     }
 
-    public static void selectByIndex(WebElement web,int value)
+    public static void selectByIndex(WebElement web,int value,String webElementName)
     {
         try
         {
             wait.until(ExpectedConditions.elementToBeClickable(web));
             sel = new Select(web);
-            sel.selectByIndex(value);
+            sel.selectByIndex(value); test.log(Status.INFO,"Selected a "+value+" from dropdown "+webElementName);
         }
         catch(Exception E)
         {
             System.out.println("Unable to select the value");
+            test.log(Status.FAIL,"Unable to select a "+value+" from dropdown "+webElementName);
+            test.log(Status.FAIL,"Error Message as::"+E.getMessage());
         }
     }
 
-    public static void selectByOption(WebElement web,String value)
+    public static void selectByOption(WebElement web,String value,String webElementName)
     {
         try
         {
@@ -129,6 +139,7 @@ public class Reusble extends CommonClass {
                // System.out.println(" "+webelement.getText());
                 if(webelement.getText().equals(value)){
                     webelement.click();
+                    test.log(Status.INFO,"Selected a "+value +" from dropdown"+webElementName);
                     break;
                 }
             }
@@ -138,6 +149,8 @@ public class Reusble extends CommonClass {
         catch(StaleElementReferenceException E)
         {
             System.out.println("Stale Element Reference Exception");
+            test.log(Status.FAIL,"Unable to select a "+value+" from dropdown "+webElementName);
+            test.log(Status.FAIL,"Error Message as::"+E.getMessage());
         }
     }
 
@@ -158,17 +171,19 @@ public class Reusble extends CommonClass {
         js.executeScript("window.scrollTo(0, 250)");
     }
 
-    public static void jsClick(WebElement web)
+    public static void jsClick(WebElement web,String webElementName)
     {
         js = (JavascriptExecutor) webdriver;
         try
         {
             wait.until(ExpectedConditions.elementToBeClickable(web));
             js.executeScript("argument[0].click()",web);
+            test.log(Status.INFO,"Clicked on WebElement::"+webElementName);
         }
         catch(Exception E)
         {
-
+            test.log(Status.FAIL,"Failed to click on ::"+webElementName);
+            test.log(Status.FAIL,"Error Message as::"+E.getMessage());
         }
     }
 

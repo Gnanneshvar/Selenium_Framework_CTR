@@ -1,0 +1,19 @@
+{
+  "userName": "testing UserName",
+  "Password": "TestingPassword",
+  "Address": {
+    "Dno": "8-902",
+    "Street":"MGR Street",
+    "District": "Chittoor",
+    "Pincode": "517001"
+  },
+  "DOB": "27-May-1990",
+  "Gender": {
+    "Male": {
+      "Age":"30"
+    },
+    "Female": {
+      "Age": "40"
+    }
+  }
+}
