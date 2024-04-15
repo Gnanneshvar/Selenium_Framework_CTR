@@ -65,7 +65,7 @@ public class CommonClass {
             options.addArguments("--disable-logging");
             webdriver=new ChromeDriver(options);
             System.out.println("Browser Launched");
-            //webdriver = new ChromeDriver();
+//            webdriver = new ChromeDriver();
         }
 
         else if (props.getProperty("Browser").equalsIgnoreCase("Firefox")) {
